@@ -33,17 +33,31 @@ var ref = new Firebase("https://radiant-fire-8876.firebaseio.com/");
         return deferred.promise;
       },
       register: function(email, password) {
-
         var deferred = $q.defer();
         ref.createUser({
           email    : email,
           password : password
         }, function(error, authData) {
           if (error) {
+
             deferred.reject(error);
             //console.log("Error creating user:", error);
           } else {
+            var userRef = ref.child('users').child(authData.uid);
+            userRef.set({
+              login: '',
+              points: 10,
+              about: '',
+              smoking: 'Negative',
+              alcohol: 'Negative',
+              interests: {
+                first: ''
+              }
+
+            });
+            
             deferred.resolve(authData);
+
             //console.log("Successfully created user account with uid:", userData.uid);
           }
         });
@@ -65,16 +79,6 @@ var ref = new Firebase("https://radiant-fire-8876.firebaseio.com/");
            deferred.resolve(authData.uid);
         });
         return deferred.promise;
-      },
-      addInf: function(login) {
-        ref.onAuth(function(authData) {
-          if(authData) {
-            ref.child("users").child(authData.uid).set({
-              login: login
-            });
-          }
-        });
-
       }
   };
 

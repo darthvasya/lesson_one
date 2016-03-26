@@ -14,7 +14,11 @@ myApp.config(function($routeProvider) {
     templateUrl: 'profile/templates/profile.html',
     controller: 'profileController'
   });
-  
+  $routeProvider.when('/meetings', {
+    templateUrl: 'meetings/templates/meetings.html',
+    controller: 'meetingsController'
+  });
+
   $routeProvider.otherwise({redirectTo: '/login'});
 }).run(function($rootScope, $templateCache) {
 

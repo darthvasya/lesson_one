@@ -16,6 +16,23 @@ myApp.factory("Profile", function($firebaseObject, $q) {
           deferred.reject(err);
         });
         return deferred.promise;
+      },
+      change: function(login, smoking, alcohol, points, about) {
+        console.log(login, smoking, alcohol);
+        ref.onAuth(function(authData) {
+          var userRef = ref.child('users').child(authData.uid);
+          userRef.set({
+            login: login,
+            points: points,
+            about: about,
+            smoking: smoking,
+            alcohol: alcohol,
+            interests: {
+              first: ''
+            }
+          });
+
+        });
       }
   }
 

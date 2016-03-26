@@ -3,7 +3,7 @@ myApp.controller('userController', function($scope, Auth, $location, $timeout) {
   $scope.auth = new Auth();
   $scope.auth.load();
   if($scope.auth.onAuth() == true) {
-    $location.path('/profile');
+    $location.path('/meetings');
   }
   //$scope.auth.login("vasya@mail.com", "myName");
   //$scope.auth.register("petr@mail.ru", "petr1234");
@@ -21,6 +21,7 @@ myApp.controller('userController', function($scope, Auth, $location, $timeout) {
        $scope.messageLogin = "Success";
        $scope.successLogin = true;
        $scope.errorLogin = false;
+
        $timeout(function () {
          $location.path('/profile');
        }, 900);
@@ -49,6 +50,7 @@ myApp.controller('userController', function($scope, Auth, $location, $timeout) {
       $scope.messageRegister = "Success. Now go Login!";
       $scope.successRegister = true;
       $scope.errorRegister = false;
+      $scope.login($scope.email, $scope.password);
     }, function(reason) {
       $scope.successRegister = false;
       $scope.errorRegister = true;
