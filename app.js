@@ -18,6 +18,14 @@ myApp.config(function($routeProvider) {
     templateUrl: 'meetings/templates/meetings.html',
     controller: 'meetingsController'
   });
+  $routeProvider.when('/createMeet', {
+    templateUrl: 'meetings/templates/createMeet.html',
+    controller: 'meetingsController'
+  });
+  $routeProvider.when('/meet', {
+    templateUrl: 'meetings/templates/meet.html',
+    controller: 'meetingsController'
+  });
 
   $routeProvider.otherwise({redirectTo: '/login'});
 }).run(function($rootScope, $templateCache) {

@@ -1,0 +1,38 @@
+
+
+<section class="inputForm" ng-controller="meetingsController">
+  <h1>GoOut meetings</h1>
+  <h4><a href="#/meetings">Meetings</a></h4>
+  <h4><a href="#/Profile">Profile</a></h4>
+  <h4>Login: <span ng-bind=""></span></h4>
+  <h4>Points: <span ng-bind=""></span></h4>
+
+
+  <form ng-submit="createMeet()">
+    <h3>Profile form:</h3>
+    <div class="form-group row">
+      <label for="title" class="col-sm-2 form-control-label">Title</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="title" placeholder="Title" name="title" ng-model="meetTitle"  >
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="time" class="col-sm-2 form-control-label">Time</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="time" placeholder="Time" name="time" ng-model="meetTime" >
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="place" class="col-sm-2 form-control-label">Place</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" id="place" placeholder="Place" name="time" ng-model="meetPlace" >
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <div class="col-sm-offset-2 col-sm-10">
+        <button type="submit" name="submit" class="btn btn-secondary" ng-hide="allow">Отправить</button>
+      </div>
+    </div>
+  </form>
+</section>

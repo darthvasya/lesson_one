@@ -52,10 +52,11 @@ var ref = new Firebase("https://radiant-fire-8876.firebaseio.com/");
               alcohol: 'Negative',
               interests: {
                 first: ''
-              }
+              },
+              isMeeting: false
 
             });
-            
+
             deferred.resolve(authData);
 
             //console.log("Successfully created user account with uid:", userData.uid);
